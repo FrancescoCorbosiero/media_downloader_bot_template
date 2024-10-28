@@ -7,7 +7,7 @@ from handlers.user_message import handle_message
 # pip install python-telegram-bot
 # pip install instaloader
 
-TELEGRAM_TOKEN = "7507368634:AAECtEFDZ8dFD2_iapHcVJQZ0z6FjFzSmq4"
+TELEGRAM_TOKEN = "TEST"
 DOWNLOAD_DIR = "memes"
 ONLINE_MESSAGE = "TG BOT - Online"
 
