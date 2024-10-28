@@ -6,7 +6,6 @@
 2. ```pip install instaloader```
 3. ```pip install toml```
 
-
 ## Run (dev)
 
 ```python
