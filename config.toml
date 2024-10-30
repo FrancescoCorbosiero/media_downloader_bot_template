@@ -1,0 +1,4 @@
+telegram_token = "YOUR_TELEGRAM_TOKEN"
+download_dir = "YOUR_DOWNLOAD_DIR"
+ig_user = "YOUR_IG_USER"
+ig_psw = "YOUR_IG_PASS"
