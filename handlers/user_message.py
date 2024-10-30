@@ -3,6 +3,7 @@ from telegram.ext import ContextTypes
 import re
 import instaloader
 import os
+import globals
 
 
 def _extract_id(url: str) -> str:
@@ -13,16 +14,15 @@ def _extract_id(url: str) -> str:
         raise ValueError("Unable to extract post id from URL")
 
 
-def _download_media(shortcode, base_directory):
-    loader = instaloader.Instaloader()
-    
+def _download_media(shortcode, base_directory):    
     target_directory = os.path.join(base_directory, shortcode)
+    print(f"== Downloading {shortcode} to {target_directory}")
     os.makedirs(target_directory, exist_ok=True)
 
-    post = instaloader.Post.from_shortcode(loader.context, shortcode)
-    loader.download_post(post, target=target_directory)
+    post = instaloader.Post.from_shortcode(globals.LOADER.context, shortcode)
+    globals.LOADER.download_post(post, target=target_directory)
 
-    print(f"== Downloaded {shortcode} to {target_directory}")
+    print(f"== Successfully downloaded {shortcode} to {target_directory}")
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -39,4 +39,4 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     except Exception as e:
         print(f'++ An unexpected error occurred. Error: {e}')
     finally:
-        await update.message.reply_text('Invalid URL! Please send a valid Instagram post or reel URL.')
+        await update.message.reply_text('Service Unavailable')
